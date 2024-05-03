@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.navbar{
+    display: flex;
+    flex-flow: row wrap;
+    height: 100px;
+    background-color: #B11116;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logo{
+    flex: 20%;
+    text-align: start;
+    margin-left: 10%;
+}
+
+.menu{
+    flex: 70%;
+    text-align: center;
+    padding: 20px;
+}
+
+.menu a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 30px;
+}
+
+.menu a:hover{
+    color: black;
+    border-bottom: 5px solid white;
+}
+
+span{
+    color: white;
+}
+
+.agora{
+    font-weight: 800;
+}
+
+.header{
+    display: flex;
+    flex-flow: 40%;
+    background-color: black;
+}
+
+.headline{
+    height: 300px;
+    margin-left: 10%;
+    flex: 40%;
+    color: white;
+    border-radius: 10px;
+    margin-top: 170px;
+    border: 1px solid white;
+    margin-right: 40px;
+}
+
+.headline h1{
+    font-weight: 900;
+    font-size: 50px;
+    text-align: center;
+    font-family: "Lobster", sans-serif;
+}
+
+.headline p{
+    font-size: 15px;
+    text-align:center;
+    padding: 5px;
+}
+
+.img-headline{
+    height: 550px;
+    margin-right: 10%;
+    flex: 40%;
+    background-image: url(../assets/fotoHead.webp);
+    background-size: cover;
+    background-position: -230px -0px;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+h2{
+    margin-top: 80px;
+    margin-left: 5%;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Lobster", sans-serif;
+}
+
+section{
+    display: flex;
+    margin-top: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+    /* border:1px solid black; */
+    width: 90%;
+    justify-content: space-around;
+}
+
+section h3{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.card{
+    height: 70%;
+    width: 350px;
+    background-color: black;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.texto-oculto{
+    display: none;
+}
+
+.card:hover{
+    background-color: #CB0017;
+    color: white;
+    padding: 40px;
+    cursor: pointer;
+}
+
+.card:hover img{
+    display: none;
+}
+
+.card:hover .card-original{
+    display: none;
+}
+
+.card:hover .texto-oculto{
+    display: block;
+}
+
+.sobre-mim{
+    height: 600px;
+    margin-top: 20px;
+    background: #CB0017;
+}
