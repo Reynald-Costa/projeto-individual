@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="./css/estilo.css">
+    <script src="./js/slide.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
@@ -32,54 +33,105 @@
         <div class="img-headline">
         </div>
     </header>
+    
+    <div class="altura">
+        <h2>Campeonatos Atuais</h2>
+        <section class="campeonatos">
+            <div class="card">
+                <div class="card-original">
+                    <img src="./assets/brasileiro.png" alt="">
+                    <h3>Brasileirão</h3>
+                </div>
+                <div class="texto-oculto">
+                    <h3>Brasileirão</h3>
+                    <p> 
+                        O torneio segue o formato de pontos corridos, onde os times se enfrentam em turno e returno ao longo de várias rodadas. 
+                        O time que acumula mais pontos ao final do campeonato é consagrado campeão brasileiro.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-original">
+                    <img src="./assets/copa-do-brasil.png" alt="">
+                    <h3>Copa do Brasil</h3>
+                </div>
+                <div class="texto-oculto">
+                    <h3>Copa do Brasil</h3>
+                    <p>
+                        Consiste em eliminatórias, onde os times se enfrentam em partidas de ida e volta.
+                        Uma característica marcante da Copa do Brasil é a possibilidade de times de divisões inferiores enfrentarem equipes de elite.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-original">
+                    <img src="./assets/libertadores-1.png" alt="">
+                    <h3>Libertadores</h3>
+                </div>
+                <div class="texto-oculto">
+                    <h3>Libertadores</h3>
+                    <p>
+                        A competição reúne os melhores clubes dos países sul-americanos.
+                        O formato da Libertadores envolve fases de grupos seguidas por mata-matas.
+                        O campeão da Libertadores garante vaga no Mundial de Clubes da FIFA
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <h2>Campeonatos Atuais</h2>
-    <section >
-        <div class="card">
-            <div class="card-original">
-                <img src="./assets/brasileiro.png" alt="">
-                <h3>Brasileirão</h3>
-            </div>
-            <div class="texto-oculto">
-                <h3>Brasileirão</h3>
-                <p> 
-                    O torneio segue o formato de pontos corridos, onde os times se enfrentam em turno e returno ao longo de várias rodadas. 
-                    O time que acumula mais pontos ao final do campeonato é consagrado campeão brasileiro.
-                </p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-original">
-                <img src="./assets/copa-do-brasil.png" alt="">
-                <h3>Copa do Brasil</h3>
-            </div>
-            <div class="texto-oculto">
-                <h3>Copa do Brasil</h3>
-                <p>
-                    Consiste em eliminatórias, onde os times se enfrentam em partidas de ida e volta.
-                    Uma característica marcante da Copa do Brasil é a possibilidade de times de divisões inferiores enfrentarem equipes de elite.
-                </p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-original">
-                <img src="./assets/libertadores-1.png" alt="">
-                <h3>Libertadores</h3>
-            </div>
-            <div class="texto-oculto">
-                <h3>Libertadores</h3>
-                <p>
-                    A competição reúne os melhores clubes dos países sul-americanos.
-                    O formato da Libertadores envolve fases de grupos seguidas por mata-matas.
-                    O campeão da Libertadores garante vaga no Mundial de Clubes da FIFA
-                </p>
-            </div>
-        </div>
-    </section>
+    <div class="altura">
+        <h2>Elenco 2024</h2>
+        <section class="slider">
+            <div class="slider-content">
+                <input type="radio" name="btn-radio" id="radio1">
+                <input type="radio" name="btn-radio" id="radio2">
+                <input type="radio" name="btn-radio" id="radio3">
+                <input type="radio" name="btn-radio" id="radio4">
 
- 
-    <div class="sobre-mim">
-        Algo
+                <div class="slide-box primeiro">
+                    <img src="https://cdn.saopaulofc.net/2023/11/spfc-capa-igor-v.png" alt="">
+                    <img src="https://cdn.saopaulofc.net/2023/11/diego-costa-v3-1.png" alt="">
+                    <img src="https://cdn.saopaulofc.net/2023/11/arboleda-v3.png" alt="">
+                    <img src="https://cdn.saopaulofc.net/2023/11/spfc-capa-welington.png" alt="">
+                </div>
+
+                <div class="slide-box">
+                    <img src="https://cdn.saopaulofc.net/2023/11/spfc-capa-lucas.png" alt="Imagem 2">
+                    <img src="https://cdn.saopaulofc.net/2023/11/galoppo-v3.png" alt="Imagem 3">
+                    <img src="https://cdn.saopaulofc.net/2023/11/calleri-v3-1.png" alt="">
+                    <img src="https://cdn.saopaulofc.net/2023/11/spfc-capa-luciano.png" alt="Imagem 3">
+                </div>
+
+                <div class="slide-box">
+                    <img src="https://cdn.saopaulofc.net/2023/11/spfc-capa-nestor.png" alt="">
+                    <img src="https://cdn.saopaulofc.net/2023/11/spfc-capa-rafinha.png" alt="">
+                    <img src="https://cdn.saopaulofc.net/2023/11/spfc-capa-m-araujo.png" alt="">
+                    <img src="https://cdn.saopaulofc.net/2024/01/spfc-capa-l-gustavo.png" alt="">
+                </div>
+
+                <div class="slide-box">
+                    <img src="https://cdn.saopaulofc.net/2024/03/andre-silva-2.png" alt="">
+                    <img src="https://cdn.saopaulofc.net/2023/11/spfc-capa-rodriguinho.png" alt="">
+                    <img src="https://cdn.saopaulofc.net/2024/01/bobadilla-v3.png" alt="">
+                    <img src="https://cdn.saopaulofc.net/2023/11/spfc-capa-rafael.png" alt="">
+                </div>
+
+                <div class="nav-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+
+                <div class="nav-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>
+                </div>
+            </div>
+        </section>
     </div>
 </body>
 </html>

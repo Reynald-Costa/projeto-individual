@@ -16,7 +16,6 @@ body{
     background-color: #B11116;
     justify-content: center;
     align-items: center;
-
 }
 
 .logo{
@@ -53,6 +52,7 @@ span{
 
 .header{
     display: flex;
+    height: 650px;
     flex-flow: 40%;
     background-color: black;
 }
@@ -104,8 +104,13 @@ h2{
     font-family: "Lobster", sans-serif;
 }
 
-section{
+.altura{
+    height: 500px;
+}
+
+.campeonatos{
     display: flex;
+    height: 500px;
     margin-top: 50px;
     margin-left: 5%;
     margin-right: 5%;
@@ -114,7 +119,7 @@ section{
     justify-content: space-around;
 }
 
-section h3{
+.campeonatos h3{
     color: white;
     text-align: center;
     font-weight: bold;
@@ -124,7 +129,7 @@ section h3{
     height: 70%;
     width: 350px;
     background-color: black;
-    padding: 20px;
+    padding: 80px;
     border-radius: 20px;
     text-align: center;
 }
@@ -153,7 +158,79 @@ section h3{
 }
 
 .sobre-mim{
-    height: 600px;
+    height: 650px;
     margin-top: 20px;
     background: #CB0017;
+}
+
+.slider{
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+.slider-content{
+    width: 400%;
+    height: auto;
+    display: flex;
+}
+
+.slider-content input{
+    display: none;
+}
+
+.slide-box{
+    width: 25%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    transition: 1s;
+}
+
+.nav-manual, .nav-auto{
+    position: absolute;
+    width: 100%;
+    margin-top: 35%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-manual .manual-btn, .nav-auto div{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-manual .manual-btn:not(:last-child), .nav-auto div:not(:last-child){
+    margin-right: 10px;
+}
+
+.nav-manual .manual-btn:hover{
+    background-color: black;
+}
+
+#radio1:checked ~ .nav-auto .auto-btn1, #radio2:checked ~ .nav-auto .auto-btn2, #radio3:checked ~ .nav-auto .auto-btn3, #radio4:checked ~ .nav-auto .auto-btn4{
+    background-color: black;
+}
+
+
+#radio1:checked ~ .primeiro{
+    margin-left: 0%;
+}
+
+#radio2:checked ~ .primeiro{
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .primeiro{
+    margin-left: -50%;
+}
+
+#radio4:checked ~ .primeiro{
+    margin-left: -75%;
 }
