@@ -53,7 +53,6 @@ span{
 .header{
     display: flex;
     height: 650px;
-    flex-flow: 40%;
     background-color: black;
 }
 
@@ -157,14 +156,9 @@ h2{
     display: block;
 }
 
-.sobre-mim{
-    height: 650px;
-    margin-top: 20px;
-    background: #CB0017;
-}
-
 .slider{
     margin: 0 auto;
+    margin-top: 50px;
     width: 100%;
     height: auto;
     padding: 0;
@@ -173,7 +167,7 @@ h2{
 
 
 .slider-content{
-    width: 400%;
+    width: 800%;
     height: auto;
     display: flex;
 }
@@ -183,39 +177,25 @@ h2{
 }
 
 .slide-box{
-    width: 25%;
+    width: 12.5%;   
     height: auto;
     position: relative;
     text-align: center;
-    transition: 1s;
+    transition: 4s;
 }
 
-.nav-manual, .nav-auto{
+.nav-auto{
     position: absolute;
-    width: 100%;
+    width: 800%;
     margin-top: 35%;
     display: flex;
     justify-content: center;
 }
 
-.nav-manual .manual-btn, .nav-auto div{
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.2s;
-}
+.slide-box img{
+    border-radius: 20px;
+    margin: 15px;
 
-.nav-manual .manual-btn:not(:last-child), .nav-auto div:not(:last-child){
-    margin-right: 10px;
-}
-
-.nav-manual .manual-btn:hover{
-    background-color: black;
-}
-
-#radio1:checked ~ .nav-auto .auto-btn1, #radio2:checked ~ .nav-auto .auto-btn2, #radio3:checked ~ .nav-auto .auto-btn3, #radio4:checked ~ .nav-auto .auto-btn4{
-    background-color: black;
 }
 
 
@@ -224,13 +204,88 @@ h2{
 }
 
 #radio2:checked ~ .primeiro{
-    margin-left: -25%;
+    margin-left: -12.5%;
 }
 
 #radio3:checked ~ .primeiro{
-    margin-left: -50%;
+    margin-left: -25%;
 }
 
 #radio4:checked ~ .primeiro{
+    margin-left: -37.5%;
+}
+
+#radio5:checked ~ .primeiro{
+    margin-left: -50%;
+}
+
+#radio6:checked ~ .primeiro{
+    margin-left: -62.5%;
+}
+
+#radio7:checked ~ .primeiro{
     margin-left: -75%;
+}
+
+#radio8:checked ~ .primeiro{
+    margin-left: -87.5%;
+} 
+
+.altura-slider{
+    height: 650px;
+}
+
+.sobre-mim{
+    display: flex;
+    height: 650px;
+    background-color: #CB0017;
+}
+
+
+.img-minha{
+    margin-left: 8%;
+    flex: 40%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 120px;
+    margin-bottom: 91px;
+    margin-right: 40px;
+    height: 430px;
+}
+
+.texto-sobre{
+    flex: 40%;
+    color: white;
+    border-radius: 10px;
+    margin-top: 120px;
+    margin-bottom: 91px;
+    border: 1px solid white;
+    margin-right: 100px;
+    height: 430px;
+}
+
+.texto-sobre h2{
+    font-weight: 900;
+    font-size: 50px;
+    text-align: center;
+    font-family: "Lobster", sans-serif;
+}
+
+
+.texto-sobre p{
+    font-size: 15px;
+    text-align:center;
+    padding: 5px;
+}
+
+.footer{
+    background-color: #D8D9CF;
+    height: 150px;
+    color: black;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    padding: 50px;
 }
