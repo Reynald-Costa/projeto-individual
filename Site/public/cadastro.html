@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="./css/cadastro.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./assets/logo-spfc.svg" alt="">
+        </div>
+        <div class="menu">
+            <a href="./index.html">Home</a>
+            <a href="#">Onu</a>
+            <span>|</span>
+            <a href="./login.html">Login</a>
+            <a class="agora" href="./cadastro.html">Cadastro</a>
+        </div>
+    </nav>
+
+    <div class="corpo">
+        <div class="saoPaulo-formulario">
+            <img src="./assets/logo-spfc.svg" alt="">
+        </div>
+        <div class="card-cadastro">
+            <h3>CADASTRE-SE</h3>
+            <div class="formulario">
+                <div class="campoNome">
+                    <input type="text" placeholder="Nome" id="ipt_nome">
+                </div>
+                <div class="campoEmail">
+                    <input type="text" placeholder="Email" id="ipt_email">
+                </div>
+                <div class="campoIadade">
+                    <input type="number" class="input-idade" placeholder="Idade" id="ipt_idade">
+                </div>
+                <div class="campoSenha">
+                    <input type="text" placeholder="Senha" id="ipt_senha">
+                </div>
+                <div class="campoConfirmarSenha">
+                    <input type="text" placeholder="Confirmar Senha" id="ipt_confirmarSenha">
+                </div>
+                <button onclick="cadastrar()">CADASTRAR</button>
+            </div>
+            <span>Já tem cadastro? <a href="./login.html" style="text-decoration: none;"><span style="color: #BC1717; font-weight: bold; text-decoration: none;">ENTRAR</span></a></span>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = ipt_nome.value;
+        var emailVar = ipt_email.value;
+        var idadeVar = Number(ipt_idade.value)
+        var senhaVar = ipt_senha.value;
+        var confirmacaoSenhaVar = ipt_confirmarSenha.value;
+        
+        if (
+        nomeVar == "" ||
+        emailVar == "" ||
+        idadeVar == "" ||
+        senhaVar == "" ||
+        confirmacaoSenhaVar == ""
+        ) {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML =
+            "(Mensagem de erro para todos os campos em branco)";
+            return false;
+            
+        } 
+        else {
+
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            idadeServer: idadeVar,
+            senhaServer: senhaVar
+        }),
+        })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+             alert('Cadastrado com sucesso!')
+            setTimeout(() => {
+                window.location = "login.html";
+            }, "1000");
+
+            } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+</script>

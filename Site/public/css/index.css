@@ -251,6 +251,8 @@ h2{
     margin-bottom: 91px;
     margin-right: 40px;
     height: 430px;
+    align-items: center;
+    text-align: center;
 }
 
 .texto-sobre{

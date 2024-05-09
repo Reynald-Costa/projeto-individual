@@ -7,6 +7,7 @@
 body{
     margin: 0;
     font-family: "Roboto", sans-serif;
+    background-color: black;
 }
 
 .navbar{
@@ -55,15 +56,14 @@ span{
     justify-content: center;
     align-items: center;
     height: 900px;
-    background-image: url(../assets/fotoLoginCadastro.webp);
+    background-image: url(../assets/fotoLoginCadastro.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0px -100px;
     position: relative;
-    filter: brightness(0.10);
 }
 
-.card-login{
+.card-cadastro{
     width: 500px;
     height: 500px;
     border-radius: 50%;
@@ -73,8 +73,6 @@ span{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: relative;
-    left: 50px;
 }
 
 
@@ -83,6 +81,15 @@ span{
     display: flex;
     flex-direction: column;
     margin-top: -15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.campoNome{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: -22px;
 }
 
 .campoEmail{
@@ -90,6 +97,15 @@ span{
     flex-direction: column;
     justify-content: space-evenly;
     margin: 10px;
+    margin-bottom: -22px;
+}
+
+.campoIdade{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 10px;
+    margin-bottom: -22px; 
 }
 
 .campoSenha{
@@ -97,13 +113,22 @@ span{
     flex-direction: column;
     justify-content: space-evenly;
     margin: 10px;
-    margin-top: -12px;
+    margin-top: -20px;
 }
 
-.card-login h3{
+.campoConfirmarSenha{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 10px;
+    margin-top: -26px;
+}
+
+.card-cadastro h3{
     font-family: "Lobster", sans-serif;
     font-size: 30px;
     margin-top: -31px;
+    text-decoration: none;
 }
 
 .formulario input{
@@ -114,19 +139,27 @@ span{
     margin: 20px;
 }
 
+.formulario .input-idade{
+    width: 200px;
+}
+
+
 .formulario button{
     border-radius: 5px;
     background-color: black;
     width: 300px;
-    margin-left: 29px;
+    margin-left: -2px;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
-.card-login span{
+.card-cadastro span{
     color: black;
     margin-top: 46px;
+    text-decoration: none;
 }
+
 
 .saoPaulo-formulario{
     width: 500px;
@@ -138,6 +171,8 @@ span{
     justify-content: center;
     align-items: center;
     margin-right: 30px;
+    position: relative;
+    left: 50px;
 }
 
 .saoPaulo-formulario img{

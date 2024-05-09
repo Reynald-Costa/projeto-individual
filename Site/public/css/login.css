@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: black;
+}
+
+.navbar{
+    display: flex;
+    flex-flow: row wrap;
+    height: 100px;
+    background-color: #B11116;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    flex: 20%;
+    text-align: start;
+    margin-left: 10%;
+}
+
+.menu{
+    flex: 70%;
+    text-align: center;
+    padding: 20px;
+}
+
+.menu a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 30px;
+}
+
+.menu a:hover{
+    color: black;
+    border-bottom: 5px solid white;
+}
+
+span{
+    color: white;
+}
+
+.agora{
+    font-weight: 800;
+}
+
+.corpo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 900px;
+    background-image: url(../assets/fotoLoginCadastro.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -100px;
+    position: relative;
+}
+
+.card-login{
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: white;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    left: 50px;
+}
+
+
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    margin-top: -15px;
+}
+
+.campoEmail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+.campoSenha{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 10px;
+    margin-top: -12px;
+}
+
+.card-login h3{
+    font-family: "Lobster", sans-serif;
+    font-size: 30px;
+    margin-top: -31px;
+}
+
+.formulario input{
+    text-align: center;
+    border-radius: 5px;
+    border: 1px black solid;
+    width: 300px;
+    margin: 20px;
+}
+
+.formulario button{
+    border-radius: 5px;
+    background-color: black;
+    width: 300px;
+    margin-left: 29px;
+    color: white;
+    font-weight: bold;
+}
+
+.card-login span{
+    color: black;
+    margin-top: 46px;
+}
+
+.saoPaulo-formulario{
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid white; 
+    background-color: black; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.saoPaulo-formulario img{
+    width: 200px;
+    height: 200px;
+}
