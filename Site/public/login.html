@@ -43,23 +43,18 @@
 
 <script>
     function logar(){
-        aguardar();
-
         var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
 
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+            alert('Preencha todos os campos para prosseguir!')
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
         }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
 
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -75,6 +70,8 @@
 
             if (resposta.ok) {
                 console.log(resposta);
+                alert('Login com sucesso!');
+                window.location = "dashboard.html";
 
                 resposta.json().then(json => {
                     console.log(json);
@@ -83,21 +80,19 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
-                        // window.location = "./dashboard/cards.html";
+
                     }, 1000); // apenas para exibir o loading
 
                 });
 
             } else {
-
+                alert('Email ou Login inválidos')
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
                 });
             }
 

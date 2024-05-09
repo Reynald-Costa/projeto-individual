@@ -121,6 +121,7 @@ span{
     margin-left: 29px;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .card-login span{
