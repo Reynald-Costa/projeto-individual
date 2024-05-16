@@ -37,6 +37,11 @@ body{
     padding: 20px 30px;
 }
 
+.menu a .usuario:hover{
+    padding: 30px;
+    color: white;
+}
+
 .menu a:hover{
     color: black;
     border-bottom: 5px solid white;
@@ -44,6 +49,13 @@ body{
 
 span{
     color: white;
+}
+
+.menu div{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 30px;
 }
 
 .agora{

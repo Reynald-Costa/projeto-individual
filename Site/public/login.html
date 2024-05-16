@@ -13,7 +13,7 @@
         </div>
         <div class="menu">
             <a href="./index.html">Home</a>
-            <a href="#">Onu</a>
+            <a href="./onu.html">Onu</a>
             <span>|</span>
             <a class="agora" href="./login.html">Login</a>
             <a href="./cadastro.html">Cadastro</a>
@@ -28,7 +28,7 @@
                     <input type="text" placeholder="Email" id="ipt_email">
                 </div>
                 <div class="campoSenha">
-                    <input type="text" placeholder="Senha" id="ipt_senha">
+                    <input type="password" placeholder="Senha" id="ipt_senha">
                 </div>
                 <button onclick="logar()">LOGAR</button>
             </div>
@@ -54,6 +54,7 @@
             return false;
         }
         else {
+            
         }
 
         fetch("/usuarios/autenticar", {
@@ -67,12 +68,11 @@
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
-
+            
             if (resposta.ok) {
                 console.log(resposta);
-                alert('Login com sucesso!');
-                window.location = "dashboard.html";
-
+              
+                
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
@@ -80,11 +80,12 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-
+                    alert('Login com sucesso!');
                     setTimeout(function () {
-
+                      
+                        window.location = "./indexQuiz.html";
                     }, 1000); // apenas para exibir o loading
-
+                    
                 });
 
             } else {
