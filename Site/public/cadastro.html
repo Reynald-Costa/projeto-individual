@@ -72,9 +72,12 @@
             "(Mensagem de erro para todos os campos em branco)";
             return false;
             
-        } 
-        else {
-
+        }else if(emailVar.indexOf('@') == -1){
+            alert('Email inválido!');
+            return false;
+        }else if(emailVar.indexOf('.') == -1){
+            alert('Email inválido!');
+            return false;
         }
 
         // Enviando o valor da nova input

@@ -61,5 +61,29 @@ span{
     background-size: cover;
     background-position: 0px -250px;
     position: relative;
-    opacity: 0.50;
+}
+
+button {
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #EFB661;
+}
+
+.botaoIniciar{
+    margin-right: 25px;
+    background-color: #CB0017;
+    color: #FFFFFF;
+    border: none;
+}
+
+.botaoVer{
+    margin-left: 25px;
+    background-color: #CB0017;
+    color: #FFFFFF;
+    border: none;
 }
