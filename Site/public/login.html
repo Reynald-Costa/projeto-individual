@@ -31,6 +31,10 @@
                     <input type="password" placeholder="Senha" id="ipt_senha">
                 </div>
                 <button onclick="logar()">LOGAR</button>
+                <br>
+                <div class="inputValidacao" id="validacaoLogin"></div>
+                <br>
+                <div class="inputValidacao1" id="validacaoCampo"></div>
             </div>
             <span>Ainda não tem cadastro? <a href="./cadastro.html" style="text-decoration: none;"><span style="color: #BC1717; font-weight: bold;">CADASTRE-SE JÁ</span></span></a>
         </div>
@@ -50,7 +54,8 @@
         console.log("FORM SENHA: ", senhaVar);
 
         if (emailVar == "" || senhaVar == "") {
-            alert('Preencha todos os campos para prosseguir!')
+            validacaoCampo.innerHTML = 'Preencha todos os campos para prosseguir!'
+            // alert('Preencha todos os campos para prosseguir!')
             return false;
         }
         else {
@@ -89,7 +94,7 @@
                 });
 
             } else {
-                alert('Email ou Login inválidos')
+                validacaoLogin.innerHTML = 'Email ou Senha inválidos'
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {

@@ -32,15 +32,19 @@
                 </div>
                 <div class="campoEmail">
                     <input type="text" placeholder="Email" id="ipt_email">
+                    <div class="inputValidacao" id="validacaoEmail"></div>
                 </div>
                 <div class="campoIadade">
                     <input type="number" class="input-idade" placeholder="Idade" id="ipt_idade">
+                    <div class="inputValidacao" id="validacaoIdade"></div>
                 </div>
                 <div class="campoSenha">
                     <input type="password" placeholder="Senha" id="ipt_senha">
+                    <div class="inputValidacao" id="validacaoSenha"></div>
                 </div>
                 <div class="campoConfirmarSenha">
                     <input type="password" placeholder="Confirmar Senha" id="ipt_confirmarSenha">
+                    <div class="inputValidacao" id="validacaoConfirmacaoSenha"></div>
                 </div>
                 <button onclick="cadastrar()">CADASTRAR</button>
             </div>
@@ -60,6 +64,8 @@
         var senhaVar = ipt_senha.value;
         var confirmacaoSenhaVar = ipt_confirmarSenha.value;
         
+        var mensagem = "";
+
         if (
         nomeVar == "" ||
         emailVar == "" ||
@@ -67,16 +73,28 @@
         senhaVar == "" ||
         confirmacaoSenhaVar == ""
         ) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-            "(Mensagem de erro para todos os campos em branco)";
+            alert('Mensagem de erro para todos os campos em branco');
             return false;
             
         }else if(emailVar.indexOf('@') == -1){
-            alert('Email inválido!');
+            mensagem = ("Email inválido!")
+            validacaoEmail.innerHTML = mensagem;
             return false;
         }else if(emailVar.indexOf('.') == -1){
-            alert('Email inválido!');
+            mensagem = ("Email inválido!")
+            validacaoEmail.innerHTML = mensagem;
+            return false;
+        }else if(idadeVar <= 0){
+            mensagem = ("Idade inválido!")
+            validacaoIdade.innerHTML = mensagem;
+            return false;
+        }else if(senhaVar.length < 7){
+            mensagem = ("Senha inválida!")
+            validacaoSenha.innerHTML = mensagem;
+            return false;
+        }else if(confirmacaoSenhaVar != senhaVar){
+            mensagem = ("Confirmação inválida!")
+            validacaoConfirmacaoSenha.innerHTML = mensagem;
             return false;
         }
 
