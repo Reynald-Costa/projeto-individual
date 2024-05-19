@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="./css/quiz.css">
-    <script src="./js/sessao.js"></script>
+    <script src="./js/quiz.js" defer></script>
+    <script src="./js/sessao.js" defer></script>
 </head>
 <body onload="validarSessao()">
     <nav class="navbar">
@@ -13,7 +14,7 @@
             <img src="./assets/logo-spfc.svg" alt="">
         </div>
         <div class="menu">
-            <a href="#">Home</a>
+            <a href="./indexQuiz.html">Home</a>
             <a href="./onu.html">Onu</a>
             <a href="./quiz.html" class="agora">Quiz</a>
             <span>|</span>
@@ -23,11 +24,21 @@
     </nav>
 
     <div class="corpoQuiz">
-        <div>
-            <button class="botaoIniciar">Iniciar Quiz</button>
-        </div>
-        <div>
-            <button class="botaoVer">Ver Dados</button>
+        <div class="container">
+            <div class="questoes-container hide">
+                <span class="questao">Pergunta aqui?</span>
+                <div class="respostas-container">
+                    <button class="resposta button">Resposta 1</button>
+                    <button class="resposta button">Resposta 2</button>
+                    <button class="resposta button">Resposta 3</button>
+                    <button class="resposta button">Resposta 4</button>
+                </div>
+            </div>
+            <div class="controls-container">
+                <button class="start-quiz button">Iniciar Quiz!</button>
+                <button class="ver-dados button" onclick="window.location = 'dashboard.html'">Ver dados</button>
+                <button class="next-question button hide">Próxima pergunta</button>
+            </div>
         </div>
     </div>
 </body>

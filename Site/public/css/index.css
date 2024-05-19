@@ -257,14 +257,19 @@ h2{
 .img-minha{
     margin-left: 8%;
     flex: 40%;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin-top: 120px;
-    margin-bottom: 91px;
-    margin-right: 40px;
     height: 430px;
     align-items: center;
     text-align: center;
+    margin-top: 53px;
+    margin-bottom: 91px;
+    margin-right: 40px;
+}
+
+.img-minha img{
+    border-radius: 10px;
+    height: 500px;
+    width: 306px;
+
 }
 
 .texto-sobre{
@@ -276,6 +281,7 @@ h2{
     border: 1px solid white;
     margin-right: 100px;
     height: 430px;
+    padding: 10px;
 }
 
 .texto-sobre h2{
@@ -289,13 +295,12 @@ h2{
 .texto-sobre p{
     font-size: 15px;
     text-align:center;
-    padding: 5px;
 }
 
 .footer{
-    background-color: #B6C4B6;
+    background-color: #322C2B;
     height: 150px;
-    color: black;
+    color: white;
     margin-top: 100px;
     display: flex;
     justify-content: center;
