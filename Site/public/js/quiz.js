@@ -4,6 +4,7 @@ const $questionsContainer = document.querySelector(".questoes-container");
 const $answersContainer = document.querySelector(".respostas-container");
 const $questionText = document.querySelector(".questao");
 const $nextQuestionButton = document.querySelector(".next-question")
+const ID_USUARIO = Number(sessionStorage.getItem("ID_USUARIO"))
 
 $startGameButton.addEventListener("click", startgame);
 $nextQuestionButton.addEventListener("click", displayNextQuestion);
@@ -53,12 +54,9 @@ function resetState() {
 function selectAnswer(event) {
     const answerClicked = event.target
 
-    // if (answerClicked.dataset.correct) {
-    //   document.body.classList.add("correct")
-    //   totalCorrect++
-    // } else {
-    //   document.body.classList.add("incorrect")
-    // }
+     if (answerClicked.dataset.correct) {
+       totalCorrect++
+     }
     
     document.querySelectorAll(".resposta").forEach(button => {
       if (button.dataset.correct) {
@@ -109,6 +107,18 @@ function finishGame() {
     </button>
   `
 
+  fetch(`registrar/registrarPontos/${ID_USUARIO}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      qtdPontosServer: totalCorrect
+    })
+  }).then(res => {
+    console.log(res);
+  })
+  console.log(totalCorrect);
 }
 
 

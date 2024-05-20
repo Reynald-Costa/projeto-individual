@@ -49,3 +49,48 @@ span{
 .agora{
     font-weight: 800;
 }
+
+.altura{
+    height: 500px;
+}
+
+.ods{
+    display: flex;
+    height: 650px;
+}
+
+.ods-img{
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 10px;
+}
+
+.ods-img img{
+    height: 500px;
+    width: 306px;
+}
+
+.texto{
+    flex: 40%;
+    border-radius: 10px;
+    margin-top: 120px;
+    margin-bottom: 91px;
+    border: 1px solid black;
+    margin-right: 100px;
+    height: 430px;
+    width: 300px;
+    padding: 10px;
+}
+
+
+.footer{
+    background-color: #322C2B;
+    height: 150px;
+    color: white;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    padding: 50px;
+}
