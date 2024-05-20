@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/onu.css">
+    <script src="../js/sessao.js"></script>
 </head>
-<body>
+<body onload="validarSessao()">
     <nav class="navbar">
         <div class="logo">
             <img src="./assets/logo-spfc.svg" alt="">
         </div>
         <div class="menu">
-            <a href="./index.html">Home</a>
+            <a href="./indexQuiz.html">Home</a>
             <a class="agora" href="./onu.html">Onu</a>
-            <a href="./login.html">Quiz</a>
+            <a href="./quiz.html">Quiz</a>
             <span>|</span>
-            <a href="./login.html">Login</a>
-            <a href="./cadastro.html">Cadastro</a>
+            <a href="" id="b_usuario" style="color: white; border: 1px solid black; border-radius: 20px; background-color: black; margin-left: 20px;"></a>
+            <a href="./index.html">Sair</a>
         </div>
     </nav>
+
+
 
     <div class="altura">
         <section class="ods">

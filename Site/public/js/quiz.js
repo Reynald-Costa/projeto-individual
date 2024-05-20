@@ -107,7 +107,7 @@ function finishGame() {
     </button>
   `
 
-  fetch(`registrar/registrarPontos/${ID_USUARIO}`, {
+  fetch(`registro/registrarPontos/${ID_USUARIO}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
