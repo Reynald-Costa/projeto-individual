@@ -23,13 +23,21 @@ idQuiz int primary key auto_increment,
 qtdPerguntas int
 );
 
+insert into quiz values
+(1, 5);
+
 create table registro(
-idRegistro int,
+idRegistro int auto_increment,
 fkUsuario int,
 fkQuiz int,
 primary key(idRegistro, fkUsuario, fkQuiz),
 qtdPontos int,
-dtAtual datetime,
+dtAtual datetime default current_timestamp,
 foreign key (fkUsuario) references usuario(id),
 foreign key (fkQuiz) references quiz(idQuiz)
 );
+
+
+select * from usuario;
+select * from registro;
+select * from quiz;
