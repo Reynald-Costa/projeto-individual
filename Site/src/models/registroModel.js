@@ -1,12 +1,12 @@
 var database = require("../database/config")
 
-function registrarPontos(qtdPontos, fkUsuario) {
+function registrar(qtdPontos, id, idQuiz) {
     var instrucao = `
-    INSERT INTO registro (qtdPontos, fkUsuario) VALUES ('${qtdPontos}, '${fkUsuario}')
+    INSERT INTO registro (qtdPontos, fkUsuario, fkQuiz) VALUES ('${qtdPontos}', '${id}', '${idQuiz}')
     `
     return database.executar(instrucao);
 }
 
 module.exports = {
-    registrarPontos
+    registrar
 }

@@ -55,7 +55,7 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 635.1px;
+    height: 628.1px;
     background-image: url(../assets/back-quiz.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -113,9 +113,9 @@ span{
     transition: filter 0.2s;
 }
 
-.start-quiz{
+/* .start-quiz{
     margin-right: 25px;
-}
+} */
 
 .start-quiz:hover {
     background-color: #EFB661;
@@ -158,3 +158,4 @@ span{
 .incorrect{
     background-color: red;
 }
+

@@ -3,9 +3,8 @@ var router = express.Router();
 
 var registroController = require("../controllers/registroController");
 
-router.post("/registrarPontos/:fkUsuario", function (req, res) {
-    registroController.registrarDados(req, res);
+router.post("/registrar", function (req, res) {
+    registroController.registrar(req, res);
 });
 
 module.exports = router;
-

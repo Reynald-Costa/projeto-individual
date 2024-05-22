@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="./css/dashaboard.css">
+    <script src="./js/quiz.js" defer></script>
     <script src="./js/sessao.js" defer></script>
 </head>
 <body onload="validarSessao()">
@@ -13,13 +14,35 @@
             <img src="./assets/logo-spfc.svg" alt="">
         </div>
         <div class="menu">
-            <a class="agora" href="./indexQuiz.html">Home</a>
-            <a href="./onu.html">Onu</a>
-            <a href="./quiz.html">Quiz</a>
+            <a href="./indexQuiz.html">Home</a>
+            <a href="./onuQuiz.html">Onu</a>
+            <a class="agora" href="./quiz.html">Quiz</a>
             <span>|</span>
             <a href="" id="b_usuario" style="color: white; border: 1px solid black; border-radius: 20px; background-color: black; margin-left: 20px;"></a>
-            <a href="./index.html">Sair</a>
+            <a href="./index.html"><img src="./assets/logout.png" alt="Sair"></a>
         </div>
     </nav>
+
+    <div class="corpoDash">
+        <div class="indicadores">
+            <div class="indicadorResultado">
+                <h3>Resultado</h3>
+                <div class="divDados">
+                </div>
+            </div>
+            <div class="indicadorIdade">
+                <h3>Média de Idade</h3>
+                
+            </div>
+        </div>
+        <div class="grafico">
+            <div class="chart">
+                <img src="./assets/imagem-exemplo.png" alt="">
+            </div>
+            <div class="botao">
+                <button onclick="window.location = 'quiz.html'"">Refazer</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

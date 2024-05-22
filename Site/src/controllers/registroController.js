@@ -1,10 +1,12 @@
 var registroModel = require("../models/registroModel");
 
-function registrarDados(req, res) {
+function registrar(req, res) {
     var qtdPontos = req.body.qtdPontosServer
-    var fkUsuario = req.params.fkUsuario
+    var id = req.body.idServer
+    var idQuiz = req.body.quizServer
+    console.log('ID NO CONTROLLER É: ' + id)
 
-    registroModel.registrarPontos(qtdPontos, fkUsuario)
+    registroModel.registrar(qtdPontos, id, idQuiz)
         .then(
             function (resultado) {
                 res.status(201).send({})
@@ -13,5 +15,5 @@ function registrarDados(req, res) {
 }
 
 module.exports = {
-    registrarDados
+    registrar
 }

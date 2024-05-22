@@ -7,6 +7,7 @@
 body{
     margin: 0;
     font-family: "Roboto", sans-serif;
+    background-color: black;
 }
 
 .navbar{
@@ -60,4 +61,79 @@ span{
 
 .agora{
     font-weight: 800;
+}
+
+.corpoDash{
+    height: 628.1px;
+    background-image: url(../assets/back-quiz.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -250px;
+    position: relative;
+}
+
+.indicadores{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.indicadorResultado{
+    /* border: 1px solid red; */
+    color: white;
+    margin-right: 100px;
+    background-color: black;
+    border-radius: 10px;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.indicadorIdade{
+    /* border: 1px solid green; */
+    color: white;
+    margin-left: 100px;
+    background-color: black;
+    border-radius: 10px;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.grafico{
+    /* border: 1px solid blue; */
+    height: 429px;
+}
+
+.chart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.botao button{
+    background-color: #CB0017;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 6px;
+    height: 48px;
+    padding: 0 32px;
+}
+
+button:hover{
+    background-color: #EFB661;
 }

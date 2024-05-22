@@ -4,7 +4,9 @@ const $questionsContainer = document.querySelector(".questoes-container");
 const $answersContainer = document.querySelector(".respostas-container");
 const $questionText = document.querySelector(".questao");
 const $nextQuestionButton = document.querySelector(".next-question")
-const ID_USUARIO = Number(sessionStorage.getItem("ID_USUARIO"))
+// const div_dados = document.querySelector(".divDados");
+var id = sessionStorage.ID_USUARIO
+var idQuiz = 1;
 
 $startGameButton.addEventListener("click", startgame);
 $nextQuestionButton.addEventListener("click", displayNextQuestion);
@@ -14,9 +16,9 @@ let totalCorrect = 0;
 
 function startgame() {
     $startGameButton.classList.add("hide");
-    $verDados.classList.add("hide");
     $questionsContainer.classList.remove("hide");
     displayNextQuestion();
+    console.log('ID AQUI NO QUIS JS É: ' + id)
 }
 
 function displayNextQuestion() {
@@ -93,27 +95,34 @@ function finishGame() {
       message = "Pode melhorar :("
   }
 
+  
   $questionsContainer.innerHTML = 
   `
-    <p class="final-message" style="color: white;">
-      Você acertou ${totalCorrect} de ${totalQuestions} questões!
-      <span>Resultado: ${message}</span>
-    </p>
-    <button 
-    onclick="window.location = 'dashboard.html'" 
-      class="button"
-    >
-      Ver Dados
-    </button>
+  <button 
+  onclick="window.location = 'dashboard.html'" 
+  class="button"
+  >
+  Ver Dados
+  </button>
   `
+  // div_dados.innerHTML =
+  //   `
+  //   <p class="final-message" style="color: white;">
+  //     Você acertou ${totalCorrect} de ${totalQuestions} questões!
+  //   <span>Resultado: ${message}</span>
+  //   </p>
+  //   `
 
-  fetch(`registro/registrarPontos/${ID_USUARIO}`, {
+
+  fetch(`/registro/registrar`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      qtdPontosServer: totalCorrect
+      qtdPontosServer: totalCorrect,
+      idServer: id,
+      quizServer : idQuiz
     })
   }).then(res => {
     console.log(res);
