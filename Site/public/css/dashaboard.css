@@ -106,6 +106,12 @@ span{
     justify-content: center;
 }
 
+#media{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .grafico{
     display: flex;
