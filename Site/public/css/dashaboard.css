@@ -8,6 +8,7 @@ body{
     margin: 0;
     font-family: "Roboto", sans-serif;
     background-color: black;
+    overflow-x: hidden;
 }
 
 .navbar{
@@ -64,7 +65,8 @@ span{
 }
 
 .corpoDash{
-    height: 628.1px;
+    height: 100vh;
+
     background-image: url(../assets/back-quiz.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -106,24 +108,37 @@ span{
 
 
 .grafico{
-    /* border: 1px solid blue; */
-    height: 429px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .chart{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: fit-content;
+    width: 50vw;
+    flex-direction: column;
+    gap: 10vh;
+    background-color: black;
 }
+
+#myChart{
+    height: 40vh;
+    width: 80vh;
+}
+
 
 .botao{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 150px;
+
 }
 
-.botao button{
+.botao {
     background-color: #CB0017;
     color: white;
     font-size: 16px;
@@ -132,6 +147,7 @@ span{
     border-radius: 6px;
     height: 48px;
     padding: 0 32px;
+    margin-top:5vh;
 }
 
 button:hover{
