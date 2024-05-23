@@ -7,5 +7,4 @@
      dashController.buscarUltimasMedidas(req, res);
  });
 
-
  module.exports = router;

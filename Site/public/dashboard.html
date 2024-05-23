@@ -35,14 +35,14 @@
             </div>
             <div class="indicadorIdade">
                 <h3>Média de Idade</h3>
-                
+                <div id="media">
+                </div>
             </div>
         </div>
        
         <div class="grafico">
             <div class="chart">
                 <canvas id="myChart"></canvas>
-                
             </div>
             <button class="botao" onclick="window.location = 'quiz.html'"">Refazer</button>
           
@@ -56,37 +56,51 @@
 <script>
     var qtdPontos = []
     var dtAtual = []
+
+        fetch(`/usuarios/mediaIdades`, {
+        method: 'GET',
+        headers: {
+            "Contenty-Type": 'application/json'
+        }
+        })
+            .then(function (resposta) {
+                console.log(resposta)
+                resposta.json().then(function (data) {
+                    console.log(data)
+
+                    media.innerHTML = data[0].mediaIdade
+                })
+        });
+    
+
    function obterDadosGrafico() {
 
+    fetch(`/dash/buscarUltimasMedidas`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+                console.log(resposta)
 
+                for(var i = 0; i<resposta.length; i++) {
 
+                    dtAtual.push(resposta[i].horarioAtual)
+                    qtdPontos.push(resposta[i].pontos_usuarios)
 
-fetch(`/dash/buscarUltimasMedidas`, { cache: 'no-store' }).then(function (response) {
-    if (response.ok) {
-        response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            resposta.reverse();
-            console.log(resposta)
+                }
+                plotarGrafico(resposta);
+                teste(resposta)
+                div_teste.innerHTML = `${resposta.length-1}`
 
-            for(var i = 0; i<resposta.length; i++) {
-
-                dtAtual.push(resposta[i].horarioAtual)
-                qtdPontos.push(resposta[i].pontos_usuarios)
-
-            }
-            plotarGrafico(resposta);
-            teste(resposta)
-            div_teste.innerHTML = `${resposta.length-1}`
-
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
-    } else {
-        console.error('Nenhum dado encontrado ou erro na API');
     }
-})
-    .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
-}
 
 function plotarGrafico() {
 console.log(dtAtual)
@@ -99,7 +113,7 @@ let labels = [];
 let dados = {
     labels: dtAtual,
     datasets: [{
-        label: '',
+        label: 'Quantidade de Pontos',
         data: qtdPontos,
         type: 'line',
         fill: false,

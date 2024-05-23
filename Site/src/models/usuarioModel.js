@@ -22,7 +22,16 @@ function cadastrar(nome, email, idade, senha) {
     return database.executar(instrucaoSql);
 }
 
+function mediaIdades() {
+
+    var instrucaoSql = `SELECT AVG(idade) as mediaIdade from usuario;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    mediaIdades
 };

@@ -12,4 +12,9 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+
+router.get("/mediaIdades", function (req, res) {
+    usuarioController.mediaIdades(req, res);
+});
+
 module.exports = router;
