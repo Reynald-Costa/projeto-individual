@@ -119,6 +119,7 @@ span{
 
 .start-quiz:hover {
     background-color: #EFB661;
+    cursor: pointer;
 }
 
 .ver-dados{
@@ -127,6 +128,7 @@ span{
 
 .ver-dados:hover {
     background-color: #EFB661;
+    cursor: pointer;
 }
 
 .button:not(:disabled):hover{

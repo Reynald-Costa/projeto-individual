@@ -16,6 +16,7 @@ let totalCorrect = 0;
 
 function startgame() {
     $startGameButton.classList.add("hide");
+    $verDados.classList.add("hide")
     $questionsContainer.classList.remove("hide");
     displayNextQuestion();
     console.log('ID AQUI NO QUIS JS É: ' + id)
@@ -76,25 +77,6 @@ function selectAnswer(event) {
 
 
 function finishGame() {
-  const totalQuestions = questions.length
-  const performance = Math.floor(totalCorrect * 100 / totalQuestions)
-
-  let message = ""
-
-  switch (true) {
-    case (performance >= 90):
-      message = "Excelente :)"
-      break
-    case (performance >= 70):
-      message = "Muito bom :)"
-      break
-    case (performance >= 50):
-      message = "Bom"
-      break
-    default:
-      message = "Pode melhorar :("
-  }
-
   
   $questionsContainer.innerHTML = 
   `

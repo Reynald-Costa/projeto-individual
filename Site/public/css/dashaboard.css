@@ -89,8 +89,6 @@ span{
     border-radius: 10px;
     width: 300px;
     height: 100px;
-    display: flex;
-    justify-content: center;
 }
 
 
@@ -102,11 +100,15 @@ span{
     border-radius: 10px;
     width: 300px;
     height: 100px;
-    display: flex;
-    justify-content: center;
 }
 
-#media{
+.h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+#media, #resultadoRecente{
     display: flex;
     justify-content: center;
     align-items: center;

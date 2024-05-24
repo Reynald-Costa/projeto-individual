@@ -27,14 +27,16 @@
     <div class="corpoDash">
         <div class="indicadores">
             <div class="indicadorResultado">
-                <h3>Resultado</h3>
-                <!-- <button onclick="teste()">Ver resultados</button> -->
-                <div class="divDados">
-                    <!-- <div id="div_teste"></div> -->
+                <div class="h3">
+                    <h3>Resultado Atual</h3>
+                </div>
+                <div id="resultadoRecente">
                 </div>
             </div>
             <div class="indicadorIdade">
-                <h3>Média de Idade</h3>
+                <div class="h3">
+                    <h3>Média de Idade</h3>
+                </div>
                 <div id="media">
                 </div>
             </div>
@@ -44,10 +46,7 @@
             <div class="chart">
                 <canvas id="myChart"></canvas>
             </div>
-            <button class="botao" onclick="window.location = 'quiz.html'"">Refazer</button>
-          
-               
-            
+            <button class="botao" onclick="window.location = 'quiz.html'">Refazer</button>
         </div>
     </div>
 </body>
@@ -84,14 +83,13 @@
 
                 for(var i = 0; i<resposta.length; i++) {
 
-                    dtAtual.push(resposta[i].horarioAtual)
+                    dtAtual.push(resposta[i].nomeAtual)
                     qtdPontos.push(resposta[i].pontos_usuarios)
 
                 }
                 plotarGrafico(resposta);
-                teste(resposta)
-                div_teste.innerHTML = `${resposta.length-1}`
-
+                
+                resultadoRecente.innerHTML = qtdPontos[0] + ' pontos';
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -100,61 +98,63 @@
         .catch(function (error) {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
+
+    
+        
+        
+
     }
 
-function plotarGrafico() {
-console.log(dtAtual)
-console.log('iniciando plotagem do gráfico...');
 
-// Criando estrutura para plotar gráfico - labels
-let labels = [];
+    function plotarGrafico() {
+    console.log(dtAtual)
+    console.log('iniciando plotagem do gráfico...');
 
-// Criando estrutura para plotar gráfico - dados
-let dados = {
-    labels: dtAtual,
-    datasets: [{
-        label: 'Quantidade de Pontos',
-        data: qtdPontos,
-        type: 'line',
-        fill: false,
-        borderColor: 'rgb(199, 52, 52)',
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [];
 
-        tension: 0.1
-    }]
-};
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+        labels: dtAtual,
+        datasets: [{
+            label: 'Quantidade de Pontos',
+            data: qtdPontos,
+            type: 'line',
+            fill: false,
+            borderColor: 'rgb(199, 52, 52)',
+            // backgroundColor: 'rgb(199, 52, 52)',
+            tension: 0.1
+        }]
+    };
 
-console.log('----------------------------------------------')
-console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-
-
-// Inserindo valores recebidos em estrutura para plotar o gráfico
+    console.log('----------------------------------------------')
+    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
 
 
-console.log('----------------------------------------------')
-console.log('O gráfico será plotado com os respectivos valores:')
-console.log('Labels:')
-console.log(labels)
-console.log('Dados:')
-console.log(dados.datasets)
-console.log('----------------------------------------------')
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
 
-// Criando estrutura para plotar gráfico - config
-const config = {
-    type: 'bar',
-    data: dados,
-};
 
-// Adicionando gráfico criado em div na tela
-let myChart = new Chart(
-    document.getElementById(`myChart`),
-    config
-);
+    console.log('----------------------------------------------')
+    console.log('O gráfico será plotado com os respectivos valores:')
+    console.log('Labels:')
+    console.log(labels)
+    console.log('Dados:')
+    console.log(dados.datasets)
+    console.log('----------------------------------------------')
 
-setTimeout(() => atualizarGrafico(myChart), 2000);
-}
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+        type: 'bar',
+        data: dados,
+    };
 
-function teste() {
-  
-    
-}
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(
+        document.getElementById(`myChart`),
+        config
+    );
+
+    setTimeout(() => atualizarGrafico(myChart), 2000);
+    }
+
 </script>

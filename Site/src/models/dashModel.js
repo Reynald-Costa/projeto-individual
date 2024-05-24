@@ -2,7 +2,7 @@
 
  function buscarUltimasMedidas() {
 
-     var instrucaoSql = `SELECT  qtdPontos  as pontos_usuarios ,  DATE_FORMAT(dtAtual,'%H:%i:%s') as horarioAtual FROM registro;`;
+     var instrucaoSql = `SELECT  qtdPontos  as pontos_usuarios, usuario.nome as nomeAtual FROM registro join usuario on fkUsuario = id;`;
 
      console.log("Executando a instrução SQL: \n" + instrucaoSql);
      return database.executar(instrucaoSql);
