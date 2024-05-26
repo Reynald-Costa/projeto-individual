@@ -119,27 +119,43 @@ span{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 .chart{
     display: flex;
-    justify-content: center;
+    justify-content:space-around;
     align-items: center;
     height: fit-content;
-    width: 50vw;
+    width: 40vw;
     flex-direction: column;
     gap: 10vh;
     background-color: black;
+    margin-right: 50px;
 }
 
-#myChart{
+.chart2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    background-color: black;
+    width: 40vw;
+    margin-left: 50px;
+}
+
+/* #myChart{
     height: 40vh;
     width: 80vh;
 }
 
+#myChart2{
+    height: 40vh;
+    width: 80vh;
+} */
 
-.botao{
+
+.refazer{
     display: flex;
     justify-content: center;
     align-items: center;

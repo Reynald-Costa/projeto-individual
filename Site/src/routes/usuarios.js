@@ -17,4 +17,12 @@ router.get("/mediaIdades", function (req, res) {
     usuarioController.mediaIdades(req, res);
 });
 
+router.get("/qtdEstadio", function (req, res) {
+    usuarioController.qtdEstadio(req, res);
+});
+
+router.get("/qtdEstadioNao", function (req, res) {
+    usuarioController.qtdEstadioNao(req, res);
+});
+
 module.exports = router;

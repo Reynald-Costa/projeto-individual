@@ -9,7 +9,7 @@
     <script src="./js/sessao.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body onload="validarSessao() , obterDadosGrafico()">
+<body onload="validarSessao() , obterDadosGrafico(), obterDadosEstadioNao()">
     <nav class="navbar">
         <div class="logo">
             <img src="./assets/logo-spfc.svg" alt="">
@@ -46,6 +46,11 @@
             <div class="chart">
                 <canvas id="myChart"></canvas>
             </div>
+            <div class="chart2">
+                <canvas id="myChart2"></canvas>
+            </div>
+        </div>
+        <div class="refazer">
             <button class="botao" onclick="window.location = 'quiz.html'">Refazer</button>
         </div>
     </div>
@@ -56,7 +61,7 @@
     var qtdPontos = []
     var dtAtual = []
 
-        fetch(`/usuarios/mediaIdades`, {
+    fetch(`/usuarios/mediaIdades`, {
         method: 'GET',
         headers: {
             "Contenty-Type": 'application/json'
@@ -69,7 +74,7 @@
 
                     media.innerHTML = data[0].mediaIdade
                 })
-        });
+    });
     
 
    function obterDadosGrafico() {
@@ -94,67 +99,160 @@
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
         }
-    })
+        })
         .catch(function (error) {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
-
-    
-        
-        
-
     }
 
 
     function plotarGrafico() {
-    console.log(dtAtual)
-    console.log('iniciando plotagem do gráfico...');
+        console.log(dtAtual)
+        console.log('iniciando plotagem do gráfico...');
 
-    // Criando estrutura para plotar gráfico - labels
-    let labels = [];
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+        Chart.defaults.font.size = 19;
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: dtAtual,
+            datasets: [{
+                label: 'Quantidade de Pontos',
+                data: qtdPontos,
+                type: 'line',
+                fill: false,
+                borderColor: 'rgb(199, 52, 52)',
+                // backgroundColor: 'rgb(199, 52, 52)',
+                tension: 0.1
+            }]
+        };
 
-    // Criando estrutura para plotar gráfico - dados
-    let dados = {
-        labels: dtAtual,
-        datasets: [{
-            label: 'Quantidade de Pontos',
-            data: qtdPontos,
-            type: 'line',
-            fill: false,
-            borderColor: 'rgb(199, 52, 52)',
-            // backgroundColor: 'rgb(199, 52, 52)',
-            tension: 0.1
-        }]
-    };
-
-    console.log('----------------------------------------------')
-    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-
-
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
 
 
-    console.log('----------------------------------------------')
-    console.log('O gráfico será plotado com os respectivos valores:')
-    console.log('Labels:')
-    console.log(labels)
-    console.log('Dados:')
-    console.log(dados.datasets)
-    console.log('----------------------------------------------')
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
 
-    // Criando estrutura para plotar gráfico - config
-    const config = {
-        type: 'bar',
-        data: dados,
-    };
 
-    // Adicionando gráfico criado em div na tela
-    let myChart = new Chart(
-        document.getElementById(`myChart`),
-        config
-    );
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
 
-    setTimeout(() => atualizarGrafico(myChart), 2000);
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`myChart`),
+            config
+        );
+
+        // setTimeout(() => atualizarGrafico(myChart), 2000);
     }
 
+    var simEstadio = [];
+    var naoEstadio = [];
+    
+
+    function obterDadosEstadioNao() {
+        fetch(`/usuarios/qtdEstadio`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (respostaEstadio) {
+                    console.log(`Dados recebidos: ${JSON.stringify(respostaEstadio)}`);
+                    respostaEstadio.reverse();
+                    console.log(respostaEstadio)
+
+                    for(var i = 0; i < respostaEstadio.length; i++) {
+                        simEstadio.push(respostaEstadio[i].qtdEstadio)
+                    }
+                    
+                });
+            } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+
+        fetch(`/usuarios/qtdEstadioNao`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (respostaEstadioNao) {
+                console.log(`Dados recebidos: ${JSON.stringify(respostaEstadioNao)}`);
+                respostaEstadioNao.reverse();
+                console.log(respostaEstadioNao)
+
+                for(var i = 0; i < respostaEstadioNao.length; i++) {
+                    naoEstadio.push(respostaEstadioNao[i].qtdEstadioNao)
+                }
+                plotarGraficoEstadioNao(respostaEstadioNao);
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+    }
+
+    function plotarGraficoEstadioNao() {
+        
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+        Chart.defaults.font.size = 19;
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: ['sim', 'não'],
+            datasets: [{
+                label: 'Pessoas que já foram no Morumbi',
+                data: [simEstadio, naoEstadio],
+                type: 'pie',
+                fill: false,
+                backgroundColor: [
+                    '#002B5B', '#FE0000'
+                ],
+                tension: 0.1
+            },
+
+
+            ]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`myChart2`),
+            config
+        );
+    }
 </script>

@@ -44,8 +44,19 @@
                 </div>
                 <div class="campoConfirmarSenha">
                     <input type="password" placeholder="Confirmar Senha" id="ipt_confirmarSenha">
-                    <div class="inputValidacao" id="validacaoConfirmacaoSenha"></div>
                 </div>
+                <div class="inputValidacao" id="validacaoConfirmacaoSenha"></div>
+                <div class="select">
+                    <div >
+                        <span>Já foi no Morumbi?</span>
+                        <select name="" id="slc_campoEstadio">
+                            <option value="#">Selecione um opção</option>
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="inputValidacaoSelect" id="validacaoCampoEstadio"></div>
                 <button onclick="cadastrar()">CADASTRAR</button>
             </div>
             <span>Já tem cadastro? <a href="./login.html" style="text-decoration: none;"><span style="color: #BC1717; font-weight: bold; text-decoration: none;">ENTRAR</span></a></span>
@@ -63,7 +74,10 @@
         var idadeVar = Number(ipt_idade.value)
         var senhaVar = ipt_senha.value;
         var confirmacaoSenhaVar = ipt_confirmarSenha.value;
+        var estadioVar = slc_campoEstadio.value;
         
+        console.log(estadioVar)
+
         var mensagem = "";
 
         if (
@@ -96,6 +110,10 @@
             mensagem = ("Confirmação inválida!")
             validacaoConfirmacaoSenha.innerHTML = mensagem;
             return false;
+        }else if(estadioVar == "#"){
+            mensagem = ("Selecione uma opção válida")
+            validacaoCampoEstadio.innerHTML = mensagem;
+            return false;
         }
 
         // Enviando o valor da nova input
@@ -110,7 +128,8 @@
             nomeServer: nomeVar,
             emailServer: emailVar,
             idadeServer: idadeVar,
-            senhaServer: senhaVar
+            senhaServer: senhaVar,
+            estadioServer: estadioVar
         }),
         })
         .then(function (resposta) {
