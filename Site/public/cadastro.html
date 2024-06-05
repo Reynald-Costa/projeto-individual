@@ -102,6 +102,10 @@
             mensagem = ("Idade inválida!")
             validacaoIdade.innerHTML = mensagem;
             return false;
+        }else if(idadeVar > 100){
+            mensagem = ("Idade inválida!")
+            validacaoIdade.innerHTML = mensagem;
+            return false;
         }else if(senhaVar.length < 7){
             mensagem = ("Senha inválida!")
             validacaoSenha.innerHTML = mensagem;
