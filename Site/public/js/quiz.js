@@ -4,7 +4,6 @@ const $questionsContainer = document.querySelector(".questoes-container");
 const $answersContainer = document.querySelector(".respostas-container");
 const $questionText = document.querySelector(".questao");
 const $nextQuestionButton = document.querySelector(".next-question")
-// const div_dados = document.querySelector(".divDados");
 var id = sessionStorage.ID_USUARIO
 var idQuiz = 1;
 
@@ -87,13 +86,7 @@ function finishGame() {
   Ver Dados
   </button>
   `
-  // div_dados.innerHTML =
-  //   `
-  //   <p class="final-message" style="color: white;">
-  //     Você acertou ${totalCorrect} de ${totalQuestions} questões!
-  //   <span>Resultado: ${message}</span>
-  //   </p>
-  //   `
+
 
 
   fetch(`/registro/registrar`, {
