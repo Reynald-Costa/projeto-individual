@@ -60,7 +60,7 @@
 
 <script>
     var qtdPontos = []
-    var dtAtual = []
+    var nomeUsuarios = []
 
     fetch(`/usuarios/mediaIdades`, {
         method: 'GET',
@@ -89,7 +89,7 @@
 
                 for(var i = 0; i<resposta.length; i++) {
 
-                    dtAtual.push(resposta[i].nomeAtual)
+                    nomeUsuarios.push(resposta[i].nomeAtual)
                     qtdPontos.push(resposta[i].pontos_usuarios)
 
                 }
@@ -108,7 +108,7 @@
 
 
     function plotarGrafico() {
-        console.log(dtAtual)
+        console.log(nomeUsuarios)
         console.log('iniciando plotagem do gráfico...');
 
         // Criando estrutura para plotar gráfico - labels
@@ -116,13 +116,13 @@
         Chart.defaults.font.size = 19;
         // Criando estrutura para plotar gráfico - dados
         let dados = {
-            labels: dtAtual,
+            labels: nomeUsuarios,
             datasets: [{
                 label: 'Quantidade de Pontos',
                 data: qtdPontos,
                 type: 'bar',
                 fill: false,
-                backgroundColor: '#002B5B',
+                backgroundColor: '#6DC5D1',
                 tension: 0.1
             },
         ]

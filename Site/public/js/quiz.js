@@ -87,8 +87,6 @@ function finishGame() {
   </button>
   `
 
-
-
   fetch(`/registro/registrar`, {
     method: "POST",
     headers: {
@@ -103,6 +101,7 @@ function finishGame() {
     console.log(res);
   })
   console.log(totalCorrect);
+  
 }
 
 
